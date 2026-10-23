@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35303.130
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DubaiJewelManufacturing", "DubaiJewelManufacturing\DubaiJewelManufacturing.csproj", "{62AB5F41-66C7-4D73-86B8-1BA23924626C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{62AB5F41-66C7-4D73-86B8-1BA23924626C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62AB5F41-66C7-4D73-86B8-1BA23924626C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62AB5F41-66C7-4D73-86B8-1BA23924626C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62AB5F41-66C7-4D73-86B8-1BA23924626C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DFD214EF-7EE2-4F4C-A7A8-61B26687FBAD}
+	EndGlobalSection
+EndGlobal

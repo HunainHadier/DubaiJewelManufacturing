@@ -1,0 +1,193 @@
+﻿<Window x:Class="DubaiJewelManufacturing.SerialnumberWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:DubaiJewelManufacturing"
+        WindowState="Maximized"
+        Title="Admin Powers" 
+        Height="600" 
+        Width="900" 
+          Icon="/Assets/Images/logo.jpg"
+        Background="White"
+        FontFamily="Segoe UI">
+
+    <Window.Resources>
+        <!-- Define styles for better maintainability -->
+        <Style x:Key="ReadOnlyTextBoxStyle" TargetType="TextBox">
+            <Setter Property="Background" Value="#F5F5F5"/>
+            <Setter Property="BorderBrush" Value="#CCCCCC"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="8">
+                            <ScrollViewer x:Name="PART_ContentHost"
+                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="EditableTextBoxStyle" TargetType="TextBox">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#CCCCCC"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="8">
+                            <ScrollViewer x:Name="PART_ContentHost"
+                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter Property="BorderBrush" Value="#4A90E2"/>
+                                <Setter Property="BorderThickness" Value="2"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="SaveButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#007ACC"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="0"
+                                CornerRadius="8"
+                                Padding="15,8">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                            VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#005A9E"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#004578"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ReturnButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#F0F0F0"/>
+            <Setter Property="Foreground" Value="#333333"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="#CCCCCC"
+                                BorderThickness="1"
+                                CornerRadius="8"
+                                Padding="15,8">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                            VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#E0E0E0"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#D0D0D0"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="20">
+        <!-- Top bar with title and username -->
+        <local:HeaderControl x:Name="HeaderCtrl" VerticalAlignment="Top" />
+        <!-- Main content centered -->
+        <StackPanel VerticalAlignment="Center" 
+                   HorizontalAlignment="Center" 
+                   Width="400">
+
+            <!-- Serial Number Display Section -->
+            <StackPanel Margin="0,0,0,30">
+                <TextBlock Text="Serial Number now:" 
+                          FontSize="16" 
+                          FontWeight="Medium"
+                          Margin="0,0,0,10" 
+                          HorizontalAlignment="Center"/>
+
+                <TextBox x:Name="CurrentSerialNumberTextBox"
+                        Text="10468" 
+                        Width="350" 
+                        Height="45" 
+                        IsReadOnly="True" 
+                        Style="{StaticResource ReadOnlyTextBoxStyle}"/>
+            </StackPanel>
+
+            <!-- Serial Number Input Section -->
+            <StackPanel Margin="0,0,0,30">
+                <TextBlock Text="Change to:" 
+                          FontSize="16" 
+                          FontWeight="Medium"
+                          Margin="0,0,0,10" 
+                          HorizontalAlignment="Center"/>
+
+                <TextBox x:Name="NewSerialNumberTextBox"
+                        Width="350" 
+                        Height="45" 
+                        Style="{StaticResource EditableTextBoxStyle}"
+                        ToolTip="Enter new serial number"/>
+            </StackPanel>
+
+            <!-- Action Buttons -->
+            <StackPanel Orientation="Horizontal" 
+                       HorizontalAlignment="Center">
+
+                <Button x:Name="SaveButton"
+                       Content="Save" 
+                       Width="120" 
+                       Height="40" 
+                       Cursor="Hand"
+                       Style="{StaticResource SaveButtonStyle}"
+                       Margin="0,0,15,0"
+                        Click="SaveButton_Click"
+                       />
+
+                <Button x:Name="ReturnButton"
+                       Content="Return to main menu" 
+                       Width="200" 
+                       Height="40"   
+                        Cursor="Hand"
+                       Style="{StaticResource ReturnButtonStyle}"
+                       Click="NavigateButton_Click"/>
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
+</Window>

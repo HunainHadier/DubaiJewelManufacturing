@@ -1,0 +1,134 @@
+﻿<Window x:Class="DubaiJewelManufacturing.AdminMainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:DubaiJewelManufacturing" 
+        Title="Dubai Jewel Manufacturing" Height="450" Width="800"
+        WindowState="Maximized"
+        Icon="/Assets/Images/logo.jpg"
+        Background="#F0F0F0">
+
+    <Window.Resources>
+        <!-- ✅ Rounded Button Style -->
+        <Style x:Key="RoundedButtonStyle" TargetType="Button">
+            <Setter Property="Foreground" Value="#2E8B57"/>
+            <Setter Property="Background" Value="#E6F3FF"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <!-- fixed -->
+            <Setter Property="BorderThickness" Value="1"/>
+            <!-- fixed -->
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="8">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              Margin="10,0"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#D1E7FF"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <!-- Layout: Header + Content -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- ✅ Header Section -->
+        <local:HeaderControl x:Name="HeaderCtrl" VerticalAlignment="Top" />
+
+
+        <!-- ✅ Main Button Area -->
+        <Grid Grid.Row="1" Margin="50,40,50,40">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Top Row -->
+            <Grid Grid.Row="0" Margin="0,0,0,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" Name="btnUsers" Height="60"
+                        Style="{StaticResource RoundedButtonStyle}"
+                        Content="Users" Click="UserPage"  Cursor="Hand">
+                    <Button.Effect>
+                        <DropShadowEffect ShadowDepth="2" BlurRadius="5" Opacity="0.2"/>
+                    </Button.Effect>
+                </Button>
+
+                <Button Grid.Column="2" Name="btnData" Height="60"
+                        Style="{StaticResource RoundedButtonStyle}"
+                        Content="Data" Click="btnData_Click"   Cursor="Hand">
+                    <Button.Effect>
+                        <DropShadowEffect ShadowDepth="2" BlurRadius="5" Opacity="0.2"/>
+                    </Button.Effect>
+                </Button>
+            </Grid>
+
+            <!-- Middle Row -->
+            <Grid Grid.Row="1" Margin="0,0,0,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" Name="btnSerialNumber" Height="60"
+                        Style="{StaticResource RoundedButtonStyle}"
+                        Content="Serial Number"
+                          Cursor="Hand"
+                        Click="NavigateButton_Click"
+                        >
+                    <Button.Effect>
+                        <DropShadowEffect ShadowDepth="2" BlurRadius="5" Opacity="0.2"/>
+                    </Button.Effect>
+                </Button>
+
+                <Button Grid.Column="2" Name="btnProducts" Height="60"
+                        Style="{StaticResource RoundedButtonStyle}"
+                        Content="Products"
+                          Cursor="Hand"
+                          Click="productpagee"
+                        >
+                    <Button.Effect>
+                        <DropShadowEffect ShadowDepth="2" BlurRadius="5" Opacity="0.2"/>
+                    </Button.Effect>
+                </Button>
+            </Grid>
+
+            <!-- Bottom Center -->
+            <Grid Grid.Row="2">
+                <Button Name="btnBarcode" Width="200" Height="60"
+                        Style="{StaticResource RoundedButtonStyle}"
+                        Content="Barcode"
+                          Cursor="Hand"
+                        HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0"
+                        Click="Barcode"
+                        >
+                    <Button.Effect>
+                        <DropShadowEffect ShadowDepth="2" BlurRadius="5" Opacity="0.2"/>
+                    </Button.Effect>
+                </Button>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
